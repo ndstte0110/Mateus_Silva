@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contato</title>
+</head>
+<body>
+    <h1>contato</h1>
+    <a th:href="@{/contato/novo}"><button>Novo contato</button></a>
+    <table>
+        <thead>
+            <th>Codigo</th>
+            <th>Tipo</th>
+            <th>Conteudo</th>
+        </thead>
+        <tbody>
+            <tr th:each="contato: ${contato}">
+                <td th:text="${contato.numero}"></td>
+                <td th:text="${contato.tipo}"></td>
+                <td th:text="${contato.conteudo}" ></td>     
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

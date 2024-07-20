@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contato</title>
+</head>
+<body>
+    <form action="/contato/novo" th:object="${contato}" method="post">
+        <div>
+            Tipo: <input type="text" th:field="*{tipo}">
+        </div>
+        <div>
+            Conteudo: <input type="text" th:field="*{conteudo}">
+        </div>     
+            Cliente:
+            <select th:field="*{clientecontato.numero}">
+                <option th:each="c: ${cliente}"
+                        th:value="${c.numero}"
+                        th:text="${c.nome}"
+                        th:selected="${c.numero == contato.clientecontato.numero}">
+                </option>
+            </select>
+        </div>
+        <input type="submit" value="Gravar">
+    </form>
+</body>
+</html>
